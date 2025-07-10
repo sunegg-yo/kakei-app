@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>月別・支払方法別 集計</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>家計管理アプリ</header>
+  <main>
+    <nav>
+      <a href="index.html">支払登録</a>
+      <a href="history.html">履歴</a>
+      <a href="summary.html">月別集計</a>
+    </nav>
+    <section>
+      <h2>月別・支払方法別 集計</h2>
+      <table id="summary-table">
+        <thead>
+          <tr>
+            <th>年月</th>
+            <th>クレジットカード</th>
+            <th>銀行引落</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec?mode=summary";
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector("#summary-table tbody");
+        Object.entries(data).forEach(([month, methods]) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${month}</td>
+            <td>¥${(methods['クレジットカード'] || 0).toLocaleString()}</td>
+            <td>¥${(methods['銀行引落'] || 0).toLocaleString()}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(err => {
+        console.error("集計取得エラー:", err);
+        document.querySelector("section").innerHTML += "<p>集計の取得に失敗しました。</p>";
+      });
+  </script>
+</body>
+</html>

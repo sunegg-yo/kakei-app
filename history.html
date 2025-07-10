@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>支払履歴</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>支払履歴（直近10件）</h1>
+  <table id="history-table">
+    <thead>
+      <tr>
+        <th>登録日</th>
+        <th>タイトル</th>
+        <th>金額</th>
+        <th>支払日</th>
+        <th>方法</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec?mode=history";
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector("#history-table tbody");
+        data.forEach(row => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${row.date}</td>
+            <td>${row.title}</td>
+            <td>¥${parseInt(row.amount).toLocaleString()}</td>
+            <td>${row.payDate}</td>
+            <td>${row.method}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(err => {
+        console.error("履歴取得エラー:", err);
+        document.body.innerHTML += "<p>履歴の取得に失敗しました。</p>";
+      });
+  </script>
+</body>
+</html>
