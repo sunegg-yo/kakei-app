@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>支払履歴</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>支払履歴（直近10件）</h1>
+  <header>家計管理アプリ</header>
   <main>
     <nav>
       <a href="index.html">支払登録</a>
@@ -15,6 +15,7 @@
       <a href="summary.html">月別集計</a>
     </nav>
     <section>
+      <h2>支払履歴（直近10件）</h2>
       <table id="history-table">
         <thead>
           <tr>
@@ -29,7 +30,7 @@
       </table>
     </section>
   </main>
-  
+
   <script>
     const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec?mode=history";
 
