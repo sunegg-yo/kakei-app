@@ -140,10 +140,8 @@ button{
   }
 
   nav a {
-    margin: auto;
-  }
-  .menuButton {
     width: 30%;
+    margin: auto;
   }
 
   .formTable{
