@@ -42,6 +42,7 @@ main {
   border:3px solid #008000;
   border-radius: 4px;
   width: 120px;
+  margin-right: -1rem;
   padding: 10px;
   color: white;
 }
@@ -147,6 +148,7 @@ button{
   .menuButton,
   .nowMenuButton {
   width: 100px;
+  margin-bottom: -1rem;
   }
 
   .formTable{
