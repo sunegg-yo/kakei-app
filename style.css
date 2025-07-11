@@ -25,7 +25,8 @@ main {
 
 .menuButton {
   background-color: #239b76;
-  width: 100px;
+  width: 150px;
+  padding: 10px;
   opacity: 0.7;
   border-radius: 4px;
   color: white;
@@ -39,6 +40,8 @@ main {
   background-color: #239b76;
   border:3px solid #008000;
   border-radius: 4px;
+  width: 150px;
+  padding: 10px;
   color: white;
 }
 
@@ -51,6 +54,7 @@ nav {
 
 nav a {
   display: block;
+  margin: auto;
   margin-bottom: 1rem;
   color: #333;
   text-align: center;
