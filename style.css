@@ -118,7 +118,8 @@ thead {
 }
 
 .submitButton{
-  margin: 10 auto;
+  margin-top: 10px;
+  margin: auto;
 }
 
 @media (max-width: 600px) {
@@ -133,8 +134,8 @@ thead {
     border-bottom: 1px solid #ccc;
   }
 
-  nav a{
-    margin: auto;
+  .menuButton {
+    width: 100px;
   }
 
   .formTable{
