@@ -147,9 +147,12 @@ button{
     margin: auto;
   }
 
-  .menuButton,
+  .menuButton {
+    width: 100px;
+  }
   .nowMenuButton {
     width: 100px;
+    margin-right: 0;
   }
 
   .formTable{
