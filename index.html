@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>家計管理アプリ</title>
-  <link rel="icon" href="images/favicon2.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180"  href="images/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>家計管理アプリ</header>
-  <main>
-    <nav>
-      <a href="index.html">支払登録</a>
-      <a href="history.html">履歴</a>
-      <a href="summary.html">月別集計</a>
-    </nav>
-    <section>
-      <h2>支払登録フォーム</h2>
-      <form id="payment-form">
-        <label for="title">支払先・タイトル:</label><br>
-        <input type="text" id="title" name="title" required><br><br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家計管理アプリ</title>
+    <link rel="icon" href="images/favicon2.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180"  href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>家計管理アプリ</header>
+    <main>
+      <nav>
+        <a class="nowMenuButton" href="index.html">支払登録</a>
+        <a class="menuButton" href="history.html">履歴</a>
+        <a class="menuButton" href="summary.html">月別集計</a>
+      </nav>
+      <section>
+        <h2>支払登録フォーム</h2>
+        <form id="payment-form">
+          <label for="title">支払先・タイトル:</label><br>
+          <input type="text" id="title" name="title" required><br><br>
 
-        <label for="amount">金額:</label><br>
-        <input type="number" id="amount" name="amount" required><br><br>
+          <label for="amount">金額:</label><br>
+          <input type="number" id="amount" name="amount" required><br><br>
 
-        <label for="payDate">支払日:</label><br>
-        <input type="date" id="payDate" name="payDate" required><br><br>
+          <label for="payDate">支払日:</label><br>
+          <input type="date" id="payDate" name="payDate" required><br><br>
 
-        <label for="method">支払方法:</label><br>
-        <select id="method" name="method" required>
-          <option value="">選択してください</option>
-          <option value="クレジットカード">クレジットカード</option>
-          <option value="銀行引落">銀行引落</option>
-        </select><br><br>
+          <label for="method">支払方法:</label><br>
+          <select id="method" name="method" required>
+            <option value="">選択してください</option>
+            <option value="クレジットカード">クレジットカード</option>
+            <option value="銀行引落">銀行引落</option>
+          </select><br><br>
 
-        <button type="submit">登録</button>
-      </form>
-      <p id="status" style="margin-top: 1rem;"></p>
-    </section>
-  </main>
+          <button type="submit">登録</button>
+        </form>
+        <p id="status" style="margin-top: 1rem;"></p>
+      </section>
+    </main>
 
-  <script>
-    const form = document.getElementById("payment-form");
-    const status = document.getElementById("status");
-    const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec";
+    <script>
+      const form = document.getElementById("payment-form");
+      const status = document.getElementById("status");
+      const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec";
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
 
-      const data = {
-        title: form.title.value,
-        amount: form.amount.value,
-        payDate: form.payDate.value,
-        method: form.method.value,
-      };
+        const data = {
+          title: form.title.value,
+          amount: form.amount.value,
+          payDate: form.payDate.value,
+          method: form.method.value,
+        };
 
-      const query = new URLSearchParams(data).toString();
+        const query = new URLSearchParams(data).toString();
 
-      fetch(`${endpoint}?${query}`, { method: "GET" })
-        .then(res => res.text())
-        .then(result => {
-          status.textContent = result;
-          form.reset();
-        })
-        .catch(err => {
-          console.error("送信エラー:", err);
-          status.textContent = "登録に失敗しました。";
-        });
-    });
-  </script>
-</body>
+        fetch(`${endpoint}?${query}`, { method: "GET" })
+          .then(res => res.text())
+          .then(result => {
+            status.textContent = result;
+            form.reset();
+          })
+          .catch(err => {
+            console.error("送信エラー:", err);
+            status.textContent = "登録に失敗しました。";
+          });
+      });
+    </script>
+  </body>
 </html>

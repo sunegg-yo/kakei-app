@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+
 header {
   background-color: #4CAF50;
   color: white;
@@ -15,17 +16,41 @@ header {
   text-align: center;
   font-size: 1.5rem;
 }
+
 main {
   flex: 1;
   display: flex;
   min-height: 0;
 }
+
+.menuButton {
+  background-color: #239b76;
+  width: 100px;
+  padding: 8px 24px;
+  opacity: 0.7;
+  border-radius: 4px;
+  color: white;
+}
+
+.menuButton:hover {
+  opacity: 1;
+}
+
+.nowMenuButton {
+  background-color: #239b76;
+  padding: 8px 24px;
+  border:3px solid #008000;
+  border-radius: 4px;
+  color: white;
+}
+
 nav {
   width: 180px;
   background-color: #f2f2f2;
   padding: 1rem;
   border-right: 1px solid #ccc;
 }
+
 nav a {
   display: block;
   margin-bottom: 1rem;
@@ -33,9 +58,7 @@ nav a {
   text-decoration: none;
   font-weight: bold;
 }
-nav a:hover {
-  text-decoration: underline;
-}
+
 section {
   flex: 1;
   padding: 1rem;
