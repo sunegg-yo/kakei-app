@@ -15,6 +15,7 @@ header {
   padding: 1rem;
   text-align: center;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 main {
@@ -25,7 +26,7 @@ main {
 
 .menuButton {
   background-color: #239b76;
-  width: 150px;
+  width: 120px;
   padding: 10px;
   opacity: 0.7;
   border-radius: 4px;
@@ -88,6 +89,7 @@ table td {
 .formTable{
   width: 60%;
   margin: auto;
+  font-size: 0.6rem;
 }
 
 .formTable th,
