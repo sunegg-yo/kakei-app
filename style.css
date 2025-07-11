@@ -26,7 +26,6 @@ main {
 .menuButton {
   background-color: #239b76;
   width: 100px;
-  padding: 8px 24px;
   opacity: 0.7;
   border-radius: 4px;
   color: white;
@@ -38,7 +37,6 @@ main {
 
 .nowMenuButton {
   background-color: #239b76;
-  padding: 8px 24px;
   border:3px solid #008000;
   border-radius: 4px;
   color: white;
@@ -55,6 +53,7 @@ nav a {
   display: block;
   margin-bottom: 1rem;
   color: #333;
+  text-align: center;
   text-decoration: none;
   font-weight: bold;
 }
