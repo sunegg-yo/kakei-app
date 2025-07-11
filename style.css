@@ -94,7 +94,7 @@ table td {
 .formTable td{
   border-top: 1px solid #d7d7d7;
   border-bottom: 1px solid #d7d7d7;
-  padding: 10px 20px;
+  padding: 0.8rem;
 }
 
 .formTable th{
