@@ -74,9 +74,14 @@ section h2{
   text-align: center;
 }
 
+.contents {
+  margin: 0 auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
 table th,
@@ -88,7 +93,7 @@ table td {
 
 .formTable{
   width: 60%;
-  margin: auto;
+  margin-bottom: 10px;
   font-size: 0.8rem;
 }
 
@@ -118,8 +123,10 @@ thead {
 }
 
 .submitButton{
-  margin-top: 10px;
-  margin: auto;
+  background-color: #c4f5fc;
+  width: 50px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 @media (max-width: 600px) {
@@ -134,8 +141,11 @@ thead {
     border-bottom: 1px solid #ccc;
   }
 
+  nav a {
+    margin: auto;
+  }
   .menuButton {
-    width: 100px;
+    width: 30%;
   }
 
   .formTable{
