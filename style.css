@@ -102,6 +102,7 @@ table td {
 .formTable th{
   width: 120px;
   background: #ffecea;
+  white-space: nowrap;
   position: relative;
   text-align: center;
 }
@@ -128,6 +129,6 @@ thead {
   }
 
   .formTable{
-    width: 90%;
+    width: 100%;
   }
 }
