@@ -17,38 +17,37 @@
         <a class="menuButton" href="summary.html">月別集計</a>
       </nav>
       <section>
-        <div class="contents">
-          <h2>支払登録フォーム</h2>
-          <form id="payment-form">
-            <table class="formTable">
-              <tbody>
-                <tr>
-                  <th>カード名</th>
-                  <td><select name="cardName" id="cardName"></td>
-                </tr>
-                <tr>
-                  <th>今月の請求金額</th>
-                  <td><input type="number" id="amount" name="amount" required></td>
-                </tr>
-                <tr>
-                  <th>支払日</th>
-                  <td><input type="date" id="payDate" name="payDate" required></td>
-                </tr>
-                <tr>
-                  <th>支払方法</th>
-                  <td>
-                    <select id="method" name="method" required>
-                      <option value="">選択してください</option>
-                      <option value="クレジットカード">クレジットカード</option>
-                      <option value="銀行引落">銀行引落</option>
-                    </select>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <button class="submitButton" type="submit">登録</button>
-          </form>
-        </div>
+        <h2>支払登録フォーム</h2>
+        <form id="payment-form">
+          <table class="formTable">
+            <tbody>
+              <tr>
+                <th>カード名</th>
+                <td><select name="cardName" id="cardName"></td>
+              </tr>
+              <tr>
+                <th>今月の請求金額</th>
+                <td><input type="number" id="amount" name="amount" required></td>
+              </tr>
+              <tr>
+                <th>支払日</th>
+                <td><input type="date" id="payDate" name="payDate" required></td>
+              </tr>
+              <tr>
+                <th>支払方法</th>
+                <td>
+                  <select id="method" name="method" required>
+                    <option value="">選択してください</option>
+                    <option value="クレジットカード">クレジットカード</option>
+                    <option value="銀行引落">銀行引落</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <button class="submitButton" type="submit">登録</button>
+        </form>
         <p id="status" style="margin-top: 1rem;"></p>
       </section>
     </main>
