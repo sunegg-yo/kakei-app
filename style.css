@@ -41,7 +41,7 @@ main {
   background-color: #239b76;
   border:3px solid #008000;
   border-radius: 4px;
-  width: 150px;
+  width: 120px;
   padding: 10px;
   color: white;
 }
@@ -89,7 +89,7 @@ table td {
 .formTable{
   width: 60%;
   margin: auto;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .formTable th,
