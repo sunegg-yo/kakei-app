@@ -124,6 +124,7 @@ thead {
 
   nav {
     width: 100%;
+    display: flex;
     border-right: none;
     border-bottom: 1px solid #ccc;
   }

@@ -27,30 +27,26 @@
               </tr>
               <tr>
                 <th>今月の請求金額</th>
-                <td><input type="text" name="amount" size="20" value="" placeholder="12345"></td>
+                <td><input type="number" id="amount" name="amount" required></td>
+              </tr>
+              <tr>
+                <th>支払日</th>
+                <td><input type="date" id="payDate" name="payDate" required></td>
+              </tr>
+              <tr>
+                <th>支払方法</th>
+                <td>
+                  <select id="method" name="method" required>
+                    <option value="">選択してください</option>
+                    <option value="クレジットカード">クレジットカード</option>
+                    <option value="銀行引落">銀行引落</option>
+                  </select>
+                </td>
               </tr>
             </tbody>
           </table>
           <br>
           <br>
-          <label for="title">支払先・タイトル:</label><br>
-          <input type="text" id="title" name="title" required><br><br>
-
-          <label for="amount">金額:</label><br>
-          <input type="number" id="amount" name="amount" required><br><br>
-
-          <label for="payDate">支払日:</label><br>
-          <input type="date" id="payDate" name="payDate" required><br><br>
-
-          <label for="method">支払方法:</label><br>
-          <select id="method" name="method" required>
-            <option value="">選択してください</option>
-            <option value="クレジットカード">クレジットカード</option>
-            <option value="銀行引落">銀行引落</option>
-          </select>
-          <br>
-          <br>
-
           <button type="submit">登録</button>
         </form>
         <p id="status" style="margin-top: 1rem;"></p>
