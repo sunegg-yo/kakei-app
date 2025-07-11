@@ -12,6 +12,7 @@ body {
 header {
   background-color: #4CAF50;
   color: white;
+  margin: auto;
   padding: 1rem;
   text-align: center;
   font-size: 1.5rem;
@@ -83,7 +84,6 @@ table td {
 
 .formTable{
   width: 60%;
-  margin: auto;
 }
 
 .formTable th,
@@ -94,8 +94,8 @@ table td {
 }
 
 .formTable th{
+  width: 20%;
   background: #ffecea;
-  padding-left: 30px;
   position: relative;
   text-align: center;
   width: 120px;
