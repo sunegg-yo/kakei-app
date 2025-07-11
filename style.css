@@ -123,6 +123,7 @@ thead {
   margin: 0 auto;
   padding: 10px;
   border-radius: 4px;
+  color: black;
 }
 
 @media (max-width: 600px) {
