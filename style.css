@@ -146,9 +146,7 @@ button{
     margin: auto;
   }
 
-  .menuButton {
-    width: 100px;
-  }
+  .menuButton,
   .nowMenuButton {
     width: 100px;
   }
