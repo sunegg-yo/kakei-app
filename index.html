@@ -19,6 +19,20 @@
       <section>
         <h2>支払登録フォーム</h2>
         <form id="payment-form">
+          <table class="formTable">
+            <tbody>
+              <tr>
+                <th>カード名</th>
+                <td><select name="cardName" id="cardName"></td>
+              </tr>
+              <tr>
+                <th>今月の請求金額</th>
+                <td><input type="text" name="amount" size="20" value="" placeholder="12345"></td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <br>
           <label for="title">支払先・タイトル:</label><br>
           <input type="text" id="title" name="title" required><br><br>
 
@@ -33,7 +47,9 @@
             <option value="">選択してください</option>
             <option value="クレジットカード">クレジットカード</option>
             <option value="銀行引落">銀行引落</option>
-          </select><br><br>
+          </select>
+          <br>
+          <br>
 
           <button type="submit">登録</button>
         </form>
