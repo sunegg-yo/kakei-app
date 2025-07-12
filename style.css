@@ -46,14 +46,14 @@ main {
   color: white;
 }
 
-nav {
+navi {
   width: 180px;
   background-color: #f2f2f2;
   padding: 1rem;
   border-right: 1px solid #ccc;
 }
 
-nav a {
+navi a {
   display: block;
   margin: auto;
   margin-bottom: 1rem;
@@ -65,7 +65,7 @@ nav a {
 
 section {
   flex: 1;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   margin: 0 auto;
   overflow-y: auto;
 }
@@ -133,7 +133,7 @@ button{
     flex-direction: column;
   }
 
-  nav {
+  navi {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -142,7 +142,7 @@ button{
     text-align: center;
   }
 
-  nav a {
+  navi a {
     margin: auto;
   }
 
