@@ -111,18 +111,18 @@ table th {
   position: relative;
 }
 
+.formTable select,
+.formTable input {
+  width: 10rem;
+  height: 25px;
+
+}
 .formTable select {
-  width: 180px;
-  margin: auto;
   text-align: center;
-  font-family: "Noto Sans JP", sans-serif;
 }
 
 .formTable input {
-  width: 200px;
-  margin: auto;
   text-align: right;
-  font-family: "Noto Sans JP", sans-serif;
 }
 
 thead {
