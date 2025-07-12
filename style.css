@@ -104,11 +104,15 @@ table th {
   padding: 0.8rem;
 }
 
-.formTable th{
+.formTable th {
   width: 120px;
   background: #ffecea;
   white-space: nowrap;
   position: relative;
+}
+
+.formTable td {
+  margin: 0 auto;
 }
 
 .formTable select,
