@@ -156,6 +156,10 @@ button{
     width: 100px;
   }
 
+  table{
+    width: 100%;
+  }
+
   .formTable{
     width: 100%;
   }
