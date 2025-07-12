@@ -112,13 +112,15 @@ table th {
 }
 
 .formTable select {
-  width: 200px;
+  width: 180px;
+  margin: auto;
   text-align: center;
   font-family: "Noto Sans JP", sans-serif;
 }
 
 .formTable input {
   width: 200px;
+  margin: auto;
   text-align: right;
   font-family: "Noto Sans JP", sans-serif;
 }
