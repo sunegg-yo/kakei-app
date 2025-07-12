@@ -75,8 +75,7 @@ section h2{
 }
 
 table {
-  width: 100%;
-  display: block;
+  width: auto;
   margin: 0 auto;
   border-collapse: collapse;
 }
@@ -94,6 +93,7 @@ table th{
 
 .formTable{
   width: 60%;
+  margin: 0 auto;
   font-size: 0.8rem;
 }
 
