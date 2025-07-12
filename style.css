@@ -92,6 +92,7 @@ table th{
 }
 
 .formTable{
+  width: 30%;
   margin: 0 auto;
   font-size: 0.8rem;
 }
@@ -108,10 +109,6 @@ table th{
   background: #ffecea;
   white-space: nowrap;
   position: relative;
-}
-
-.formTable td {
-  width: 240px;
 }
 
 .formTable select{
