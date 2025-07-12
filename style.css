@@ -82,9 +82,10 @@ table {
 
 table th,
 table td {
-  border: 1px solid #ddd;
-  padding: 0.6rem;
-  text-align: left;
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+  padding: 0.8rem;
+  text-align: center;
 }
 
 table th {
@@ -95,14 +96,6 @@ table th {
   width: 30%;
   margin: 0 auto;
   font-size: 0.8rem;
-}
-
-.formTable th,
-.formTable td {
-  border-top: 1px solid #d7d7d7;
-  border-bottom: 1px solid #d7d7d7;
-  padding: 0.8rem;
-  text-align: center;
 }
 
 .formTable th {
