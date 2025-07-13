@@ -161,7 +161,6 @@ button{
   table{
     width: max-content;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* iOSのスムーススクロール対策 */
   }
 
   .formTable{
