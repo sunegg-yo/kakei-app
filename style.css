@@ -78,6 +78,8 @@ table {
   width: 80%;
   margin: 0 auto;
   border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 table th,
@@ -95,7 +97,6 @@ table th {
 .formTable {
   width: 30%;
   margin: 0 auto;
-  font-size: 0.8rem;
 }
 
 .formTable th {
