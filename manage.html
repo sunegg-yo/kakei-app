@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スプレッドシート管理</title>
+  <style>
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .sheet-link {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    #current-id {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>スプレッドシート管理</h1>
+
+  <button onclick="fetchSpreadsheetList()">📄 スプレッドシート一覧</button>
+  <button onclick="createSpreadsheet()">🆕 家計管理アプリを新規作成</button>
+
+  <div id="current-id">現在の紐づけID: <span id="spreadsheet-id">読み込み中...</span></div>
+
+  <table id="sheet-list" style="display:none;">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>URL</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbx-wXtw54xG7xKPtzVNQqQidQUlc4ehwKDP0Ixi8qdz58_N5uy3x0xH9RKQohbGb_OT/exec";
+
+    async function getCurrentId() {
+      const res = await fetch(`${GAS_URL}?mode=currentId`);
+      const text = await res.text();
+      document.getElementById("spreadsheet-id").textContent = text || "(未設定)";
+    }
+
+    async function fetchSpreadsheetList() {
+      const res = await fetch(`${GAS_URL}?mode=listSheets`);
+      const data = await res.json();
+      const tbody = document.querySelector("#sheet-list tbody");
+      tbody.innerHTML = "";
+
+      data.forEach(file => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${file.name}</td>
+          <td><a class="sheet-link" href="${file.url}" target="_blank">開く</a></td>
+          <td><button onclick="selectSpreadsheet('${file.id}')">選択</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById("sheet-list").style.display = "table";
+    }
+
+    async function selectSpreadsheet(id) {
+      const res = await fetch(`${GAS_URL}?mode=set&id=${id}`);
+      const msg = await res.text();
+      alert("選択保存完了: " + msg);
+      getCurrentId();
+    }
+
+    async function createSpreadsheet() {
+      const res = await fetch(`${GAS_URL}?mode=create`);
+      const data = await res.json();
+      alert(`作成完了: ${data.name}`);
+      getCurrentId();
+    }
+
+    // 初期表示
+    getCurrentId();
+  </script>
+</body>
+</html>
