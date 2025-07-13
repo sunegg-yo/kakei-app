@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カード設定</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>カード設定</header>
+  <main>
+    <navi>
+      <a class="nowMenuButton" href="index.html">支払登録</a>
+      <a class="menuButton" href="history.html">履歴</a>
+      <a class="menuButton" href="summary.html">月別集計</a>
+      <a class="menuButton" href="setting.html">カード設定</a>
+      <a class="menuButton" href="recurring.html">定期支払</a>
+    </navi>
+    <section>
+      <h2>カード設定</h2>
+      <form id="card-form">
+        <table class="formTable">
+          <tr><th>カード名</th><td><input type="text" id="card" required></td></tr>
+          <tr><th>口座名</th><td><input type="text" id="account" required></td></tr>
+          <tr><th>支払日</th><td><input type="number" id="payDate" required></td></tr>
+        </table>
+        <br><button type="submit">登録</button>
+      </form>
+      <ul id="card-list"></ul>
+    </section>
+  </main>
+
+  <script>
+    const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec";
+    const cardForm = document.getElementById("card-form");
+    const cardList = document.getElementById("card-list");
+    let cards = [];
+
+    function updateList() {
+      cardList.innerHTML = cards.map(c => `<li>${c.card} → ${c.account}（${c.payDate}日）</li>`).join("");
+    }
+
+    fetch(`${endpoint}?mode=getCardSettings`)
+      .then(res => res.json())
+      .then(data => { cards = data; updateList(); });
+
+    cardForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const newCard = {
+        card: cardForm.card.value,
+        account: cardForm.account.value,
+        payDate: parseInt(cardForm.payDate.value)
+      };
+      cards.push(newCard);
+      fetch(`${endpoint}?cardSettingsJson=${encodeURIComponent(JSON.stringify(cards))}`)
+        .then(() => {
+          updateList();
+          cardForm.reset();
+        });
+    });
+  </script>
+</body>
+</html>

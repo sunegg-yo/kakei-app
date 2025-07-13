@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定期支払設定</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>定期支払設定</header>
+  <main>
+    <navi>
+      <a class="menuButton" href="index.html">支払登録</a>
+      <a class="menuButton" href="history.html">履歴</a>
+      <a class="menuButton" href="summary.html">月別集計</a>
+      <a class="menuButton" href="setting.html">カード設定</a>
+      <a class="nowMenuButton" href="recurring.html">定期支払</a>
+    </navi>
+    <section>
+      <h2>定期支払設定</h2>
+      <form id="recurring-form">
+        <table class="formTable">
+          <tr><th>支払先</th><td><input type="text" id="title" required></td></tr>
+          <tr><th>口座名</th><td><input type="text" id="account" required></td></tr>
+          <tr><th>支払日</th><td><input type="number" id="baseDate" required></td></tr>
+        </table>
+        <br><button type="submit">登録</button>
+      </form>
+      <ul id="recurring-list"></ul>
+    </section>
+  </main>
+
+  <script>
+    const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec";
+    const recurringForm = document.getElementById("recurring-form");
+    const recurringList = document.getElementById("recurring-list");
+    let recurringData = [];
+
+    function updateList() {
+      recurringList.innerHTML = recurringData.map(r => `<li>${r.title} → ${r.account}（${r.baseDate}日）</li>`).join("");
+    }
+
+    fetch(`${endpoint}?mode=getRecurring`)
+      .then(res => res.json())
+      .then(data => { recurringData = data; updateList(); });
+
+    recurringForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const newEntry = {
+        title: recurringForm.title.value,
+        account: recurringForm.account.value,
+        baseDate: parseInt(recurringForm.baseDate.value)
+      };
+      recurringData.push(newEntry);
+      fetch(`${endpoint}?recurringJson=${encodeURIComponent(JSON.stringify(recurringData))}`)
+        .then(() => {
+          updateList();
+          recurringForm.reset();
+        });
+    });
+  </script>
+</body>
+</html>
