@@ -78,7 +78,6 @@ table {
   width: 80%;
   margin: 0 auto;
   border-collapse: collapse;
-  overflow-x: auto;
   font-size: 0.9rem;
 }
 
@@ -160,7 +159,8 @@ button{
   }
 
   table{
-    width: 100%;
+    width: max-content;
+    overflow-x: auto;
   }
 
   .formTable{
