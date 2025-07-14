@@ -133,7 +133,7 @@ button:hover {
   color: white;
 }
 
-.menuButton :hover {
+.menuButton:hover {
   opacity: 1;
 }
 
