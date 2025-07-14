@@ -36,10 +36,12 @@ navi a {
   display: block;
   margin: auto;
   margin-bottom: 1rem;
+  padding: 10px 0 10px 15px;
   color: #333;
   text-align: left;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 /*=====コンテンツメニュー=======*/
@@ -127,7 +129,6 @@ button:hover {
 .menuButton {
   background-color: #239b76;
   width: 150px;
-  padding: 10px 0 10px 15px;
   opacity: 0.7;
   border-radius: 4px;
   color: white;
@@ -141,7 +142,6 @@ button:hover {
   background-color: #239b76;
   border:3px solid #008000;
   width: 150px;
-  padding: 10px 0 10px 15px;
   border-radius: 4px;
   color: white;
 }
