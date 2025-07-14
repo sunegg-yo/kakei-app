@@ -37,11 +37,39 @@ main {
   margin: auto;
   margin-bottom: 1rem;
   padding: 10px 0 10px 15px;
-  color: #333;
+  color: white;
   text-align: left;
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.menuButton,
+.nowMenuButton {
+  display: flex;
+  width: 150px;
+  background-color: #239b76;
+  border-radius: 4px;
+  color: white;
+  align-items: center;
+}
+
+.menuButton {
+  opacity: 0.7;
+}
+
+.menuButton:hover {
+  opacity: 1;
+}
+
+.nowMenuButton {
+  border:3px solid #008000;
+}
+
+.menuButton span.icon,
+.nowMenuButton span.icon {
+  width: 2em;
+  text-align: center;
 }
 
 /*=====コンテンツメニュー=======*/
@@ -124,34 +152,6 @@ button{
 
 button:hover {
   opacity: 1;
-}
-
-.menuButton,
-.nowMenuButton {
-  display: flex;
-  width: 150px;
-  background-color: #239b76;
-  border-radius: 4px;
-  color: white;
-  align-items: center;
-}
-
-.menuButton {
-  opacity: 0.7;
-}
-
-.menuButton:hover {
-  opacity: 1;
-}
-
-.nowMenuButton {
-  border:3px solid #008000;
-}
-
-.menuButton span.icon,
-.nowMenuButton span.icon {
-  width: 2em;
-  text-align: center;
 }
 
 .manageButton{
