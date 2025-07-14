@@ -41,6 +41,10 @@ main {
   user-select: none;
 }
 
+#nav.collapsed {
+  width: 50px;
+}
+
 #navi a {
   display: block;
   margin: auto;
