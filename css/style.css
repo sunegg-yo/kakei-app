@@ -34,9 +34,14 @@ main {
 
 #navi a {
   display: block;
+  width: 150px;
   margin: auto;
   margin-bottom: 1rem;
   padding: 10px 0 10px 5px;
+  background-color: #239b76;
+  opacity: 0.7;
+  border-radius: 4px;
+  align-items: center;
   color: white;
   text-align: left;
   text-decoration: none;
@@ -44,30 +49,18 @@ main {
   font-size: 1rem;
 }
 
-.menuButton,
-.nowMenuButton {
-  width: 150px;
-  background-color: #239b76;
-  border-radius: 4px;
-  align-items: center;
-}
-
-.menuButton {
-  opacity: 0.7;
-}
-
-.menuButton:hover {
+#navi a:hover {
   opacity: 1;
+}
+
+#navi a span.icon {
+  width: 2em;
+  text-align: center;
 }
 
 .nowMenuButton {
   border:3px solid #008000;
-}
-
-.menuButton span.icon,
-.nowMenuButton span.icon {
-  width: 2em;
-  text-align: center;
+  opacity: 1;
 }
 
 /*=====コンテンツメニュー=======*/
