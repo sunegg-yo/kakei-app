@@ -1,5 +1,4 @@
 * {
-  box-sizing: border-box;
   font-family: "Noto Sans JP", sans-serif;
 }
 body {
@@ -69,6 +68,7 @@ section {
   padding: 0 1rem;
   margin: 0 auto;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 section h2{
