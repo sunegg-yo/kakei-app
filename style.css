@@ -58,6 +58,7 @@ button:hover {
 }
 
 .manageButton{
+  width: auto;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -85,6 +86,10 @@ navi a {
   text-align: center;
   text-decoration: none;
   font-weight: bold;
+}
+
+navi a :hover{
+  opacity: 1;
 }
 
 /*=====コンテンツメニュー=======*/
