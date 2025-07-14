@@ -1,136 +1,136 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>家計管理アプリ</title>
-  <link rel="icon" href="images/favicon2.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/77bd8a188d.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <header>家計管理アプリ</header>
-  <main>
-    <navi>
-      <a class="nowMenuButton" href="index.html"><span class="fa-solid fa-pen"></span> 支払登録</a>
-      <a class="menuButton" href="history.html"><span class="fa-solid fa-list"></span> 履歴</a>
-      <a class="menuButton" href="summary.html"><span class="fa-solid fa-coins"></span> 月別集計</a>
-      <a class="menuButton" href="setting.html"><span class="fa-solid fa-credit-card"></span> カード設定</a>
-      <a class="menuButton" href="recurring.html"><span class="fa-solid fa-calendar-days"></span> 定期支払</a>
-      <a class="menuButton" href="manage.html"><span class="fa-solid fa-gear"></span> 初期設定</a>
-    </navi>
-    <section>
-      <h2>支払登録フォーム</h2>
-      <form id="payment-form">
-        <table class="formTable">
-          <tbody>
-            <tr>
-              <th>カード名</th>
-              <td>
-                <select name="cardName" id="cardName" required>
-                  <option value="">選択してください</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>支払口座</th>
-              <td><input type="text" id="account" name="account" readonly></td>
-            </tr>
-            <tr>
-              <th>支払日</th>
-              <td><input type="date" id="payDate" name="payDate" required></td>
-            </tr>
-            <tr>
-              <th>今月の請求金額</th>
-              <td><input type="number" id="amount" name="amount" required></td>
-            </tr>
-            <tr>
-              <th>支払方法</th>
-              <td>
-                <select id="method" name="method" required>
-                  <option value="">選択してください</option>
-                  <option value="クレジットカード">クレジットカード</option>
-                  <option value="銀行引落">銀行引落</option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br>
-        <button type="submit">登録</button>
-      </form>
-      <p id="status" style="margin-top: 1rem;"></p>
-    </section>
-  </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家計管理アプリ</title>
+    <link rel="icon" href="images/favicon2.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/77bd8a188d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>家計管理アプリ</header>
+    <main>
+      <navi>
+        <a class="nowMenuButton" href="index.html"><span class="fa-solid fa-pen"></span>  支払登録</a>
+        <a class="menuButton" href="history.html"><span class="fa-solid fa-list"></span>  履歴</a>
+        <a class="menuButton" href="summary.html"><span class="fa-solid fa-coins"></span>  月別集計</a>
+        <a class="menuButton" href="setting.html"><span class="fa-solid fa-credit-card"></span>  カード設定</a>
+        <a class="menuButton" href="recurring.html"><span class="fa-solid fa-calendar-days"></span>  定期支払</a>
+        <a class="menuButton" href="manage.html"><span class="fa-solid fa-gear"></span>  初期設定</a>
+      </navi>
+      <section>
+        <h2>支払登録フォーム</h2>
+        <form id="payment-form">
+          <table class="formTable">
+            <tbody>
+              <tr>
+                <th>カード名</th>
+                <td>
+                  <select name="cardName" id="cardName" required>
+                    <option value="">選択してください</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>支払口座</th>
+                <td><input type="text" id="account" name="account" readonly></td>
+              </tr>
+              <tr>
+                <th>支払日</th>
+                <td><input type="date" id="payDate" name="payDate" required></td>
+              </tr>
+              <tr>
+                <th>今月の請求金額</th>
+                <td><input type="number" id="amount" name="amount" required></td>
+              </tr>
+              <tr>
+                <th>支払方法</th>
+                <td>
+                  <select id="method" name="method" required>
+                    <option value="">選択してください</option>
+                    <option value="クレジットカード">クレジットカード</option>
+                    <option value="銀行引落">銀行引落</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <button type="submit">登録</button>
+        </form>
+        <p id="status" style="margin-top: 1rem;"></p>
+      </section>
+    </main>
 
-  <script>
-    const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec";
+    <script>
+      const endpoint = "https://script.google.com/macros/s/AKfycby0IEnF_SEPv0m8phmolQGSQeiKEuKLXNNxGfo51RkPp7RFn36feCZCDhRNOunKmEB4/exec";
 
-    const form = document.getElementById("payment-form");
-    const status = document.getElementById("status");
-    const cardSelect = document.getElementById("cardName");
-    const accountInput = document.getElementById("account");
-    const payDateInput = document.getElementById("payDate");
+      const form = document.getElementById("payment-form");
+      const status = document.getElementById("status");
+      const cardSelect = document.getElementById("cardName");
+      const accountInput = document.getElementById("account");
+      const payDateInput = document.getElementById("payDate");
 
-    let cardSettings = [];
+      let cardSettings = [];
 
-    // カード設定取得とカード名セレクトボックスに反映
-    fetch(`${endpoint}?mode=getCardSettings`)
-      .then(res => res.json())
-      .then(data => {
-        cardSettings = data;
-        data.forEach(card => {
-          const opt = document.createElement("option");
-          opt.value = card.card;
-          opt.textContent = card.card;
-          cardSelect.appendChild(opt);
+      // カード設定取得とカード名セレクトボックスに反映
+      fetch(`${endpoint}?mode=getCardSettings`)
+        .then(res => res.json())
+        .then(data => {
+          cardSettings = data;
+          data.forEach(card => {
+            const opt = document.createElement("option");
+            opt.value = card.card;
+            opt.textContent = card.card;
+            cardSelect.appendChild(opt);
+          });
         });
+
+      // カード選択時、口座名と支払日を自動入力
+      cardSelect.addEventListener("change", () => {
+        const selected = cardSettings.find(c => c.card === cardSelect.value);
+        if (selected) {
+          accountInput.value = selected.account;
+          // 支払日は当月 or 翌月の選択支払日に変換
+          const today = new Date();
+          let target = new Date(today.getFullYear(), today.getMonth(), selected.payDate);
+          if (target < today) {
+            target.setMonth(target.getMonth() + 1);
+          }
+          payDateInput.valueAsDate = target;
+        } else {
+          accountInput.value = "";
+          payDateInput.value = "";
+        }
       });
 
-    // カード選択時、口座名と支払日を自動入力
-    cardSelect.addEventListener("change", () => {
-      const selected = cardSettings.find(c => c.card === cardSelect.value);
-      if (selected) {
-        accountInput.value = selected.account;
-        // 支払日は当月 or 翌月の選択支払日に変換
-        const today = new Date();
-        let target = new Date(today.getFullYear(), today.getMonth(), selected.payDate);
-        if (target < today) {
-          target.setMonth(target.getMonth() + 1);
-        }
-        payDateInput.valueAsDate = target;
-      } else {
-        accountInput.value = "";
-        payDateInput.value = "";
-      }
-    });
+      // 支払登録処理
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    // 支払登録処理
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+        const data = {
+          title: cardSelect.value,
+          account: accountInput.value,
+          amount: form.amount.value,
+          payDate: form.payDate.value,
+          method: form.method.value,
+        };
 
-      const data = {
-        title: cardSelect.value,
-        account: accountInput.value,
-        amount: form.amount.value,
-        payDate: form.payDate.value,
-        method: form.method.value,
-      };
+        const query = new URLSearchParams(data).toString();
 
-      const query = new URLSearchParams(data).toString();
-
-      fetch(`${endpoint}?${query}`, { method: "GET" })
-        .then(res => res.text())
-        .then(result => {
-          status.textContent = result;
-          form.reset();
-        })
-        .catch(err => {
-          console.error("送信エラー:", err);
-          status.textContent = "登録に失敗しました。";
-        });
-    });
-  </script>
-</body>
+        fetch(`${endpoint}?${query}`, { method: "GET" })
+          .then(res => res.text())
+          .then(result => {
+            status.textContent = result;
+            form.reset();
+          })
+          .catch(err => {
+            console.error("送信エラー:", err);
+            status.textContent = "登録に失敗しました。";
+          });
+      });
+    </script>
+  </body>
 </html>
