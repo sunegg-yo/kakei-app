@@ -159,6 +159,7 @@ button:hover {
   cursor: pointer;
 }
 
+/*=====スマホ向け=======*/
 @media (max-width: 600px) {
   main {
     flex-direction: column;
