@@ -26,13 +26,10 @@ main {
 
 /*=====ナビゲーションメニュー=======*/
 navi {
-  display: flex;
-  flex-direction: column;
   width: 180px;
   background-color: #f2f2f2;
   padding: 1rem;
   border-right: 1px solid #ccc;
-  gap: 6px;
 }
 
 navi a {
@@ -153,7 +150,7 @@ button:hover {
 
 .menuButton span.icon,
 .nowMenuButton span.icon {
-  width: 1.5em;
+  width: 2em;
   text-align: center;
 }
 
