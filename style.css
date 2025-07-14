@@ -37,7 +37,7 @@ navi a {
   margin: auto;
   margin-bottom: 1rem;
   color: #333;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   font-weight: bold;
 }
@@ -176,6 +176,7 @@ button:hover {
 
   navi a {
     margin: auto;
+    text-align: center;
   }
 
   .menuButton {
