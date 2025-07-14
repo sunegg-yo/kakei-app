@@ -36,12 +36,12 @@ main {
   display: block;
   margin: auto;
   margin-bottom: 1rem;
-  padding: 10px 0 10px 15px;
+  padding: 10px 0 10px 5px;
   color: white;
   text-align: left;
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .menuButton,
