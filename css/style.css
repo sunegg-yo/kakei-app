@@ -32,19 +32,6 @@ main {
   border-right: 1px solid #ccc;
 }
 
-#naviHeader {
-  background-color: #239b76;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  text-align: center;
-  user-select: none;
-}
-
-#nav.collapsed {
-  width: 50px;
-}
-
 #navi a {
   display: block;
   margin: auto;
