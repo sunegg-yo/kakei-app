@@ -24,52 +24,6 @@ main {
   min-height: 0;
 }
 
-/*=====ボタン関連=======*/
-button{
-  display: block;
-  background-color: #e9e9e9;
-  width: 100px;
-  margin: 0 auto;
-  padding: 10px;
-  border-radius: 4px;
-  color: black;
-}
-
-button:hover {
-  opacity: 1;
-}
-
-.menuButton {
-  background-color: #239b76;
-  width: 120px;
-  padding: 10px;
-  opacity: 0.7;
-  border-radius: 4px;
-  color: white;
-}
-
-.nowMenuButton {
-  background-color: #239b76;
-  border:3px solid #008000;
-  border-radius: 4px;
-  width: 120px;
-  padding: 10px;
-  color: white;
-}
-
-.manageButton{
-  width: auto;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #239b76;
-  opacity: 0.7;
-  color: white;
-  cursor: pointer;
-}
-
 /*=====ナビゲーションメニュー=======*/
 navi {
   width: 180px;
@@ -86,10 +40,6 @@ navi a {
   text-align: center;
   text-decoration: none;
   font-weight: bold;
-}
-
-navi a :hover{
-  opacity: 1;
 }
 
 /*=====コンテンツメニュー=======*/
@@ -157,6 +107,56 @@ thead {
   margin-top: 1rem;
   font-weight: bold;
   color: #333;
+}
+
+/*=====ボタン関連=======*/
+button{
+  display: block;
+  background-color: #e9e9e9;
+  width: 100px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 4px;
+  color: black;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.menuButton {
+  background-color: #239b76;
+  width: 120px;
+  padding: 10px;
+  opacity: 0.7;
+  border-radius: 4px;
+  color: white;
+}
+
+.menuButton :hover {
+  opacity: 1;
+}
+
+.nowMenuButton {
+  background-color: #239b76;
+  border:3px solid #008000;
+  border-radius: 4px;
+  width: 120px;
+  padding: 10px;
+  color: white;
+}
+
+.manageButton{
+  width: auto;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #239b76;
+  opacity: 0.7;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
