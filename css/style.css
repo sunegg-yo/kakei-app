@@ -32,7 +32,13 @@ main {
   border-right: 1px solid #ccc;
 }
 
-#navi a {
+#navi ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navi li a {
   display: block;
   width: 150px;
   margin: auto;
@@ -49,16 +55,16 @@ main {
   font-size: 1rem;
 }
 
-#navi a:hover {
+#navi li a:hover {
   opacity: 1;
 }
 
-#navi a span.icon {
+#navi li a span.icon {
   width: 2em;
   text-align: center;
 }
 
-#navi a.nowMenuButton {
+#navi li a.nowMenuButton {
   border:3px solid #008000;
   opacity: 1;
 }
@@ -160,6 +166,10 @@ button:hover {
 }
 
 /*=====スマホ向け=======*/
+#mobileMenu {
+    display: none;
+}
+
 @media (max-width: 600px) {
   main {
     flex-direction: column;
@@ -172,14 +182,20 @@ button:hover {
   #mobileMenu {
     background: #f2f2f2;
     padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
     text-align: center;
     border-top: 1px solid #ccc;
   }
 
-  #mobileMenu a {
+  #mobileMenu ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #mobileMenu li a {
     display: block;
     padding: 10px 0.2rem 10px 0.1rem;
     background: #239b76;
@@ -192,16 +208,16 @@ button:hover {
     font-weight: bold;
   }
 
-  #mobileMenu a:hover {
+  #mobileMenu li a:hover {
     opacity: 1;
   }
 
-  #mobileMenu a span.icon {
+  #mobileMenu li a span.icon {
     width: 2em;
     text-align: center;
   }
 
-  #mobileMenu a.nowMenuButton {
+  #mobileMenu li a.nowMenuButton {
     border:2px solid #008000;
     opacity: 1;
   }
