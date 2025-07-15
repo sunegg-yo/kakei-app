@@ -160,30 +160,43 @@ button:hover {
 }
 
 /*=====スマホ向け=======*/
+#mobileMenu {
+  display: none; /* 初期は非表示 */
+  background: #f9f9f9;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+#mobileMenu a {
+  display: block;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+}
+
+#mobileMenu a:hover {
+  background-color: #e0e0e0;
+}
+
 @media (max-width: 600px) {
   main {
     flex-direction: column;
   }
 
   #navi {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
+    display: none;
   }
 
-  #navi a {
-    margin: auto;
-    text-align: center;
-  }
-
-  .menuButton {
-    width: 100px;
-  }
-  .nowMenuButton {
-    width: 100px;
+  #mobileMenu {
+    display: grid;
   }
 
   table{
