@@ -80,30 +80,29 @@
 
       let cardSettings = [];
 
-      // カード設定をスプレッドシートから取得してセレクトボックスに反映
+      // カード設定取得
       fetch(`${endpoint}?mode=getCardSettingsSheet`)
         .then(res => res.json())
         .then(data => {
           cardSettings = data;
           data.forEach(card => {
             const opt = document.createElement("option");
-            opt.value = card.cardName;
-            opt.textContent = card.cardName;
+            opt.value = card.card;
+            opt.textContent = card.card;
             cardSelect.appendChild(opt);
           });
-        })
-        .catch(err => {
-          console.error("カード設定の取得に失敗しました:", err);
         });
 
-      // カード選択時の口座・支払日自動入力
+      // カード選択時の自動入力
       cardSelect.addEventListener("change", () => {
-        const selected = cardSettings.find(c => c.cardName === cardSelect.value);
+        const selected = cardSettings.find(c => c.card === cardSelect.value);
         if (selected) {
           accountInput.value = selected.account;
           const today = new Date();
-          let target = new Date(today.getFullYear(), today.getMonth(), parseInt(selected.payDate));
-          if (target < today) target.setMonth(target.getMonth() + 1);
+          let target = new Date(today.getFullYear(), today.getMonth(), selected.payDate);
+          if (target < today) {
+            target.setMonth(target.getMonth() + 1);
+          }
           payDateInput.valueAsDate = target;
         } else {
           accountInput.value = "";
@@ -111,20 +110,20 @@
         }
       });
 
-      // 支払登録処理
+      // 登録処理（POST）
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const data = {
-          title: cardSelect.value,
-          amount: form.amount.value,
-          payDate: form.payDate.value,
-          method: accountInput.value,
-      };
+        const formData = new FormData();
+        formData.append("title", cardSelect.value);
+        formData.append("method", accountInput.value);
+        formData.append("payDate", payDateInput.value);
+        formData.append("amount", form.amount.value);
 
-      const query = new URLSearchParams(data).toString();
-
-      fetch(`${endpoint}?${query}`, { method: "GET" })
+        fetch(endpoint, {
+          method: "POST",
+          body: formData,
+        })
         .then(res => res.text())
         .then(result => {
           status.textContent = result;
