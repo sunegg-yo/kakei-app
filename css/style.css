@@ -201,6 +201,11 @@ button:hover {
     text-align: center;
   }
 
+  #mobileMenu a.nowMenuButton {
+    border:3px solid #008000;
+    opacity: 1;
+  }
+
   table{
     width: max-content;
     overflow-x: auto;
