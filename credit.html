@@ -80,30 +80,30 @@
 
       let cardSettings = [];
 
-      // カード設定取得とカード名セレクトボックスに反映
-      fetch(`${endpoint}?mode=getCardSettings`)
+      // カード設定をスプレッドシートから取得してセレクトボックスに反映
+      fetch(`${endpoint}?mode=getCardSettingsSheet`)
         .then(res => res.json())
         .then(data => {
           cardSettings = data;
           data.forEach(card => {
             const opt = document.createElement("option");
-            opt.value = card.card;
-            opt.textContent = card.card;
+            opt.value = card.cardName;
+            opt.textContent = card.cardName;
             cardSelect.appendChild(opt);
           });
+        })
+        .catch(err => {
+          console.error("カード設定の取得に失敗しました:", err);
         });
 
-      // カード選択時、口座名と支払日を自動入力
+      // カード選択時の口座・支払日自動入力
       cardSelect.addEventListener("change", () => {
-        const selected = cardSettings.find(c => c.card === cardSelect.value);
+        const selected = cardSettings.find(c => c.cardName === cardSelect.value);
         if (selected) {
           accountInput.value = selected.account;
-          // 支払日は当月 or 翌月の選択支払日に変換
           const today = new Date();
-          let target = new Date(today.getFullYear(), today.getMonth(), selected.payDate);
-          if (target < today) {
-            target.setMonth(target.getMonth() + 1);
-          }
+          let target = new Date(today.getFullYear(), today.getMonth(), parseInt(selected.payDate));
+          if (target < today) target.setMonth(target.getMonth() + 1);
           payDateInput.valueAsDate = target;
         } else {
           accountInput.value = "";
@@ -117,23 +117,23 @@
 
         const data = {
           title: cardSelect.value,
-          account: accountInput.value,
           amount: form.amount.value,
           payDate: form.payDate.value,
-        };
+          method: accountInput.value,
+      };
 
-        const query = new URLSearchParams(data).toString();
+      const query = new URLSearchParams(data).toString();
 
-        fetch(`${endpoint}?${query}`, { method: "GET" })
-          .then(res => res.text())
-          .then(result => {
-            status.textContent = result;
-            form.reset();
-          })
-          .catch(err => {
-            console.error("送信エラー:", err);
-            status.textContent = "登録に失敗しました。";
-          });
+      fetch(`${endpoint}?${query}`, { method: "GET" })
+        .then(res => res.text())
+        .then(result => {
+          status.textContent = result;
+          form.reset();
+        })
+        .catch(err => {
+          console.error("送信エラー:", err);
+          status.textContent = "登録に失敗しました。";
+        });
       });
     </script>
   </body>
