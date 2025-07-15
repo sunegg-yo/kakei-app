@@ -107,6 +107,11 @@ table th {
   position: relative;
 }
 
+.formTable td {
+  width: 150px;
+  height: 25px;
+}
+
 .formTable select,
 .formTable input {
   width: 10rem;
