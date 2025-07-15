@@ -59,39 +59,33 @@
         cardList.innerHTML = cards.map(c => `<li>${c.cardName} → ${c.account}（${c.payDate}日）</li>`).join("");
       }
 
-      async function loadCardSettings() {
-        const res = await fetch(`${endpoint}?mode=getCardSettingsSheet`);
-        const data = await res.json();
-        cards = data;
-        updateList();
-      }
-
-      cardForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const newCard = {
-          cardName: cardForm.cardName.value.trim(),
-          account: cardForm.account.value.trim(),
-          payDate: parseInt(cardForm.payDate.value)
-        };
-
-        if (!newCard.cardName || !newCard.account || isNaN(newCard.payDate)) {
-          alert("すべての項目を正しく入力してください");
-          return;
-        }
-
-        cards.push(newCard);
-
-        await fetch(`${endpoint}?mode=saveCardSettingsSheet`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(cards)
+      // 初期表示用（カード情報読み込み）
+      fetch(`${endpoint}?mode=getCardSettingsSheet`)
+        .then(res => res.json())
+        .then(data => {
+          cards = data;
+          updateList();
         });
 
-        updateList();
-        cardForm.reset();
-      });
+      // 登録処理（GET送信）
+      cardForm.addEventListener("submit", e => {
+        e.preventDefault();
+        const newCard = {
+          cardName: cardForm.cardName.value,
+          account: cardForm.account.value,
+          payDate: parseInt(cardForm.payDate.value)
+        };
+        cards.push(newCard);
 
-      loadCardSettings();
+        const encoded = encodeURIComponent(JSON.stringify(cards));
+        fetch(`${endpoint}?mode=saveCardSettingsSheet&data=${encoded}`)
+          .then(() => {
+            updateList();
+            cardForm.reset();
+            alert("保存しました");
+          });
+      });
     </script>
+
   </body>
 </html>
