@@ -107,11 +107,6 @@ table th {
   position: relative;
 }
 
-.formTable td {
-  width: 150px;
-  height: 25px;
-}
-
 .formTable select,
 .formTable input {
   width: 10rem;
@@ -186,7 +181,7 @@ button:hover {
 
   #mobileMenu a {
     display: block;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 0.2rem 10px 0.1rem;
     background: #239b76;
     opacity: 0.7;
     border: 1px solid #ccc;
