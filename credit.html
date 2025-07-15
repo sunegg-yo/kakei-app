@@ -60,16 +60,6 @@
                 <th>今月の請求金額</th>
                 <td><input type="number" id="amount" name="amount" required></td>
               </tr>
-              <tr>
-                <th>支払方法</th>
-                <td>
-                  <select id="method" name="method" required>
-                    <option value="">選択してください</option>
-                    <option value="クレジットカード">クレジットカード</option>
-                    <option value="銀行引落">銀行引落</option>
-                  </select>
-                </td>
-              </tr>
             </tbody>
           </table>
           <br>
@@ -130,7 +120,6 @@
           account: accountInput.value,
           amount: form.amount.value,
           payDate: form.payDate.value,
-          method: form.method.value,
         };
 
         const query = new URLSearchParams(data).toString();
