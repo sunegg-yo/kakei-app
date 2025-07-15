@@ -39,7 +39,7 @@
         <h2>カード設定</h2>
         <form id="card-form">
           <table class="formTable">
-            <tr><th>カード名</th><td><input type="text" id="card" required></td></tr>
+            <tr><th>カード名</th><td><input type="text" id="cardName" required></td></tr>
             <tr><th>口座名</th><td><input type="text" id="account" required></td></tr>
             <tr><th>支払日</th><td><input type="number" id="payDate" required></td></tr>
           </table>
@@ -56,7 +56,7 @@
       let cards = [];
 
       function updateList() {
-        cardList.innerHTML = cards.map(c => `<li>${c.card} → ${c.account}（${c.payDate}日）</li>`).join("");
+        cardList.innerHTML = cards.map(c => `<li>${c.cardName} → ${c.account}（${c.payDate}日）</li>`).join("");
       }
 
       fetch(`${endpoint}?mode=getCardSettings`)
@@ -66,7 +66,7 @@
       cardForm.addEventListener("submit", e => {
         e.preventDefault();
         const newCard = {
-          card: cardForm.card.value,
+          cardName: cardForm.cardName.value,
           account: cardForm.account.value,
           payDate: parseInt(cardForm.payDate.value)
         };
