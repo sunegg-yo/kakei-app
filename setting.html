@@ -81,7 +81,6 @@
 
         cards.push(newCard);
 
-        // スプレッドシートに保存（POST）
         await fetch(`${endpoint}?mode=saveCardSettingsSheet`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
